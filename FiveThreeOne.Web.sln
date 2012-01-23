@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{00000000-0000-0000-0000-000000000000}") = "FiveThreeOne.Web", "FiveThreeOne.Web\FiveThreeOne.Web.csproj", "{53EBDB3C-A3D2-4134-B764-27FFF3AAE07D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveThreeOne.Web.Tests", "FiveThreeOne.Web.Tests\FiveThreeOne.Web.Tests.csproj", "{49E8DD2A-9EFB-4B16-A6C5-17A9304822C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49E8DD2A-9EFB-4B16-A6C5-17A9304822C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49E8DD2A-9EFB-4B16-A6C5-17A9304822C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49E8DD2A-9EFB-4B16-A6C5-17A9304822C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49E8DD2A-9EFB-4B16-A6C5-17A9304822C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53EBDB3C-A3D2-4134-B764-27FFF3AAE07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53EBDB3C-A3D2-4134-B764-27FFF3AAE07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53EBDB3C-A3D2-4134-B764-27FFF3AAE07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53EBDB3C-A3D2-4134-B764-27FFF3AAE07D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
