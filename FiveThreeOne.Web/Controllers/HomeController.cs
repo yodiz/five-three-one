@@ -9,6 +9,8 @@ namespace FiveThreeOne.Web.Controllers {
 		public ActionResult Index() {
 			ViewBag.Message = "Modify this template to kick-start your ASP.NET MVC application.";
 
+			ViewBag.Message = "Connection: "+System.Configuration.ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"];
+
 			return View();
 		}
 
