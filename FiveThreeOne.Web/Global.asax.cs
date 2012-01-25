@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using FiveThreeOne.Service;
+using FiveThreeOne.Service.Impl;
+using Ninject;
 
 namespace FiveThreeOne.Web {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -25,8 +28,19 @@ namespace FiveThreeOne.Web {
 
 		}
 
+		public void SetupDependencyInjection(string connectionString) {
+			IKernel kernel = new StandardKernel();
+
+			kernel.Bind<IIdentification>().ToMethod(x => new PlainIdentifier(connectionString));
+			kernel.Bind<IExercise>().ToMethod(x => new Exercise(connectionString));
+			
+			DependencyResolver.SetResolver( t => kernel.Get(t), t => kernel.GetAll(t) );
+		}
+
 		protected void Application_Start() {
 			AreaRegistration.RegisterAllAreas();
+
+			SetupDependencyInjection(System.Configuration.ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);

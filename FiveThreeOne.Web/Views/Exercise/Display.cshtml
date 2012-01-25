@@ -1,0 +1,41 @@
+﻿@model FiveThreeOne.Web.Models.ExerciseDisplayModel
+
+@{
+	ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+
+@Model.Exercise.Name <br />
+
+Träningsmax: 
+@Model.Exercise.Exercise.WorkoutMax kg<br />
+
+
+
+
+@{ var weeks = new [] { Model.SetWeek1, Model.SetWeek2, Model.SetWeek3, Model.SetWeek4 }; }
+
+@for (int w=0;w<weeks.Length;w++) {
+	var week = weeks[w];
+
+	<div style="float:left;margin: 1em;">
+	<text>Week @(w+1):</text><br />
+
+	@for (int i=0;i<week.Sets.Length;i++) {
+		var set = week.Sets[i];
+		<text>Set @(i+1):</text><br />
+		<text>@set.Weight kg</text><br />
+
+		if (set.Repititions.IsFixed) {
+			<text>@((set.Repititions as FiveThreeOne.Service.Model.Repitition.Fixed).Item)</text>
+		}
+		else if (set.Repititions.IsMaximumReps) {
+			<text>@((set.Repititions as FiveThreeOne.Service.Model.Repitition.MaximumReps).Item)+</text>
+		}
+		<br /><br />
+	}
+
+	</div>
+}

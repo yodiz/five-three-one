@@ -9,7 +9,7 @@ namespace FiveThreeOne.Web.Controllers {
 		public ActionResult Index() {
 			ViewBag.Message = "Modify this template to kick-start your ASP.NET MVC application.";
 
-			ViewBag.Message = "Connection: "+System.Configuration.ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"];
+			ViewBag.Message = "Connection: ";
 
 			return View();
 		}
@@ -27,3 +27,15 @@ namespace FiveThreeOne.Web.Controllers {
 		}
 	}
 }
+
+
+/*
+ * Create excersice
+ * Update excerise
+ * 
+ * Get sets for given excerice / week
+ * 
+ * Enter result for given excersice / week
+
+
+*/
