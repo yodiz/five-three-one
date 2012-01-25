@@ -19,7 +19,9 @@ module private Convert =
 
   let week2dbWeek = function |Week1 -> 1uy |Week2 -> 2uy |Week3 -> 3uy |Week4 -> 4uy
 
-  let exceriseToNamedExcersice (e : dbSchema.ServiceTypes.Exercise) : NamedExercise = 
+  
+
+  let exceriseToNamedExcersice (e : Db.Schema.ServiceTypes.Exercise) : NamedExercise = 
     { NamedExercise.Name = e.Name; Exercise = { Exercise.WorkoutMax = e.WorkoutMaxInKg * 1.0<kg>; ExerciseType = e.Type |> dbExerciseType2ExerciseType }  }
 
 
@@ -30,11 +32,11 @@ open Convert
 type Exercise(connectionString) = 
   interface IExercise with
     member x.CreateExercise user exercise = 
-      let db = dbSchema.GetDataContext(connectionString)
+      let db = Db.Schema.GetDataContext(connectionString)
       db.DataContext.Log <- System.Console.Out
 
       let dbExc = 
-        new dbSchema.ServiceTypes.Exercise 
+        new Db.Schema.ServiceTypes.Exercise 
           ( UserId = user.Id, Name = exercise.Name, 
             WorkoutMaxInKg = (exercise.Exercise.WorkoutMax/1.0<kg>), 
             Type = (exercise.Exercise.ExerciseType |> exerciseType2dbExerciseType) )
@@ -43,7 +45,7 @@ type Exercise(connectionString) =
       db.DataContext.SubmitChanges()
 
     member x.UpdateExercise user name exercise = 
-      let db = dbSchema.GetDataContext(connectionString)
+      let db = Db.Schema.GetDataContext(connectionString)
       db.DataContext.Log <- System.Console.Out
 
       let excersie = 
@@ -58,7 +60,7 @@ type Exercise(connectionString) =
       db.DataContext.SubmitChanges()      
 
     member x.GetExercises user = 
-      let db = dbSchema.GetDataContext(connectionString)
+      let db = Db.Schema.GetDataContext(connectionString)
       db.DataContext.Log <- System.Console.Out
       db.DataContext.ObjectTrackingEnabled <- false
 
@@ -68,7 +70,7 @@ type Exercise(connectionString) =
       excersie |> Seq.toArray 
 
     member x.GetExercise user name = 
-      let db = dbSchema.GetDataContext(connectionString)
+      let db = Db.Schema.GetDataContext(connectionString)
       db.DataContext.Log <- System.Console.Out
       db.DataContext.ObjectTrackingEnabled <- false
 
@@ -134,10 +136,10 @@ type Exercise(connectionString) =
 
 
     member x.ReportSet user name week actualWeight actualRepititations comment = 
-      let db = dbSchema.GetDataContext(connectionString)
+      let db = Db.Schema.GetDataContext(connectionString)
       db.DataContext.Log <- System.Console.Out
 
-      let dbExc = new dbSchema.ServiceTypes.Result ()
+      let dbExc = new Db.Schema.ServiceTypes.Result ()
       dbExc.UserId <- user.Id 
       dbExc.ExcerciseName <- name 
       dbExc.ExcersiceDate <- System.DateTime.Today 

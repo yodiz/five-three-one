@@ -4,12 +4,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{89418495-8a89-458a-b3d6-4981899176cf}</ProjectGuid>
+    <ProjectGuid>{c8bbb54b-529b-4359-8ad4-7f04eaa5acc8}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FiveThreeOne</RootNamespace>
-    <AssemblyName>FiveThreeOne</AssemblyName>
+    <RootNamespace>DbSchema</RootNamespace>
+    <AssemblyName>DbSchema</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <Name>FiveThreeOne</Name>
+    <Name>DbSchema</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -19,7 +19,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\FiveThreeOne.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\DbSchema.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,32 +28,21 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\FiveThreeOne.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\DbSchema.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DbSchema">
-      <HintPath>..\lib\DbSchema\DbSchema\bin\Release\DbSchema.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Core">
-      <HintPath>..\lib\FSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Data.TypeProviders">
-      <HintPath>..\lib\FSharp.Data.TypeProviders.dll</HintPath>
-    </Reference>
+    <Reference Include="FSharp.Data.TypeProviders, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Transactions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="Model.fs" />
-    <Compile Include="Service.fs" />
-    <Compile Include="PlainIdentifier.fs" />
-    <Compile Include="Exercise.fs" />
+    <Compile Include="Module1.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
