@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using FiveThreeOne.Service;
-using FiveThreeOne.Service.Impl;
+//using FiveThreeOne.Service;
+//using FiveThreeOne.Service.Impl;
 using Ninject;
 
 namespace FiveThreeOne.Web {
@@ -31,8 +31,8 @@ namespace FiveThreeOne.Web {
 		public void SetupDependencyInjection(string connectionString) {
 			IKernel kernel = new StandardKernel();
 
-			kernel.Bind<IIdentification>().ToMethod(x => new PlainIdentifier(connectionString));
-			kernel.Bind<IExercise>().ToMethod(x => new Exercise(connectionString));
+			//kernel.Bind<IIdentification>().ToMethod(x => new PlainIdentifier(connectionString));
+			//kernel.Bind<IExercise>().ToMethod(x => new Exercise(connectionString));
 			
 			DependencyResolver.SetResolver( t => kernel.Get(t), t => kernel.GetAll(t) );
 		}

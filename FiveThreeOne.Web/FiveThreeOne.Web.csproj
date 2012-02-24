@@ -200,12 +200,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FiveThreeOne\FiveThreeOne.fsproj">
-      <Project>{89418495-8a89-458a-b3d6-4981899176cf}</Project>
-      <Name>FiveThreeOne</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Exercise\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
